@@ -11,6 +11,9 @@ seaborn = "*"
 plotly = "*"
 ipykernel = "*"
 nbformat = "*"
+spotipy = "*"
+python-dotenv = "*"
+scikit-image = "*"
 
 [dev-packages]
 ipykernel = "*"
