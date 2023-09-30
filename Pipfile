@@ -14,6 +14,8 @@ nbformat = "*"
 spotipy = "*"
 python-dotenv = "*"
 scikit-image = "*"
+graphviz = "*"
+pydot = "*"
 
 [dev-packages]
 ipykernel = "*"
