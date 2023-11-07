@@ -16,6 +16,9 @@ python-dotenv = "*"
 scikit-image = "*"
 graphviz = "*"
 pydot = "*"
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
 
 [dev-packages]
 ipykernel = "*"
