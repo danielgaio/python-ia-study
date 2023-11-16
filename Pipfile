@@ -19,6 +19,7 @@ pydot = "*"
 torch = "*"
 torchvision = "*"
 torchaudio = "*"
+torchsummary = "*"
 
 [dev-packages]
 ipykernel = "*"
