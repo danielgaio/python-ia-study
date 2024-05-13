@@ -1,0 +1,57 @@
+<mxfile host="Electron" modified="2024-03-03T10:54:47.129Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="sAuVsBAb-C8X6iEjkXZ3" version="23.1.5" type="device">
+  <diagram name="Page-1" id="V4U6mVwUJMFC6cNqHrJH">
+    <mxGraphModel dx="954" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-2" value="S3" style="swimlane;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry y="60" width="1380" height="670" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-3" value="&lt;ul&gt;&lt;li&gt;Stores objects (files) inside of Buckets (directories).&lt;/li&gt;&lt;li&gt;Objects have keys. The key is the full path.&lt;/li&gt;&lt;li&gt;Max object size is 5TB.&lt;/li&gt;&lt;li&gt;Objects can have key-value tags.&lt;/li&gt;&lt;li&gt;S3 supports any file format (csv, json, parquet, orc, avro, protobuf).&lt;/li&gt;&lt;li style=&quot;border-color: var(--border-color);&quot;&gt;We can use S3 to create a data lake.&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;S3 storage classes&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-2">
+          <mxGeometry x="20" y="40" width="370" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-5" value="Decoupling of storage and computing" style="swimlane;whiteSpace=wrap;html=1;rounded=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-2">
+          <mxGeometry x="430" y="50" width="335" height="200" as="geometry">
+            <mxRectangle x="430" y="50" width="260" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-6" value="S3 - &lt;b&gt;storage&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-5">
+          <mxGeometry x="15" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-7" value="EC2, Athena, RedShift, Spectrum, Recognition, Glue&lt;br&gt;-&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;compute&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-5">
+          <mxGeometry x="185" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-10" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="wQpRTeSzpkhgw8ej1SsK-5" source="wQpRTeSzpkhgw8ej1SsK-6" target="wQpRTeSzpkhgw8ej1SsK-7">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="60" y="190" as="sourcePoint" />
+            <mxPoint x="160" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-8" value="Data partitioning" style="swimlane;whiteSpace=wrap;html=1;rounded=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;fillColor=default;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-2">
+          <mxGeometry x="425" y="270" width="435" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-12" value="&lt;ul style=&quot;border-color: var(--border-color); text-align: left;&quot;&gt;&lt;li style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;A method for speeding up range queries (from Athena, for example).&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Common methods are, by date (some parts of the path are dynamic) and by id (ex. of a product).&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Some tools like Kinisis and Glue handle partitions automatially.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;fillColor=default;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-8">
+          <mxGeometry x="15" y="40" width="225" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-16" value="How to integrate data on a hybrid environment" style="swimlane;whiteSpace=wrap;html=1;rounded=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;fillColor=default;startSize=50;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-2">
+          <mxGeometry x="800" y="50" width="430" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-13" value="Storage Gateway" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.storage_gateway;fillColor=#E05243;gradientColor=none;rounded=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-16">
+          <mxGeometry x="171" y="60" width="76.5" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-14" value="On Premisses" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Exchange_On_Premises_Access.svg;rounded=1;strokeColor=default;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;fontStyle=1;fillColor=default;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-16">
+          <mxGeometry x="30" y="71.5" width="40" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-15" value="&lt;b&gt;S3&lt;/b&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;rounded=1;fontFamily=Helvetica;" vertex="1" parent="wQpRTeSzpkhgw8ej1SsK-16">
+          <mxGeometry x="330" y="67.5" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;startArrow=classic;startFill=1;" edge="1" parent="wQpRTeSzpkhgw8ej1SsK-16" source="wQpRTeSzpkhgw8ej1SsK-15" target="wQpRTeSzpkhgw8ej1SsK-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wQpRTeSzpkhgw8ej1SsK-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.014;entryY=0.523;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;startArrow=classic;startFill=1;" edge="1" parent="wQpRTeSzpkhgw8ej1SsK-16" source="wQpRTeSzpkhgw8ej1SsK-13" target="wQpRTeSzpkhgw8ej1SsK-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
